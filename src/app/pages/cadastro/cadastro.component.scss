@@ -1,0 +1,97 @@
+$c-primario: #d4a017; // amarelo mostarda
+$c-secundario: #f48c06; // laranja
+$c-fundo: #fff9e6; // amarelo pastel claro
+$c-texto: #222; // quase preto
+$c-erro: #d93025; // vermelho para erros
+
+.cadastro-container {
+  max-width: 420px;
+  margin: 40px auto;
+  background-color: $c-fundo;
+  padding: 25px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: $c-texto;
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: $c-primario;
+  }
+  
+  .form-cadastro {
+    display: flex;
+    flex-direction: column;
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 18px;
+      
+      label {
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+      
+      input {
+        padding: 8px 12px;
+        border: 2px solid lighten($c-primario, 40%);
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+        
+        &:focus {
+          border-color: $c-secundario;
+          outline: none;
+          box-shadow: 0 0 5px $c-secundario;
+        }
+        
+        &.invalid {
+          border-color: $c-erro;
+          background-color: #ffe6e6;
+        }
+      }
+      
+      .error {
+        font-size: 0.85rem;
+        color: $c-erro;
+        margin-top: 4px;
+        font-style: italic;
+      }
+    }
+    
+    .btn-cadastrar {
+      background-color: $c-primario;
+      color: white;
+      padding: 10px 0;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      
+      &:hover:not(:disabled) {
+        background-color: $c-secundario;
+      }
+      
+      &:disabled {
+        background-color: lighten($c-primario, 30%);
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+.img-familia {
+    width: 80%;
+    max-width: 450px;
+}
+
+.div-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  

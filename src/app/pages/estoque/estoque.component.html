@@ -1,0 +1,41 @@
+<h2>Produtos em Estoque</h2>
+
+<div class="div-center">
+  <div class="filtros">
+    <input type="text" [(ngModel)]="filtroNome" placeholder="Buscar por nome" />
+    <input type="text" [(ngModel)]="filtroCategoria" placeholder="Buscar por categoria" />
+  </div>
+</div>
+
+<div *ngIf="produtos.length > 0; else vazio">
+  <div *ngFor="let categoria of Object.keys(produtosPorCategoria)" class="categoria-bloco">
+    <h3 class="categoria-titulo">{{ categoria }}</h3>
+    <div class="tabela-wrapper">
+      <table class="estoque-tabela">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Quantidade</th>
+            <th>Preço</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let produto of produtosPorCategoria[categoria]">
+            <td>{{ produto.nome | uppercase }}</td>
+            <td>{{ produto.quantidade }}</td>
+            <td>R$ {{ produto.preco | number:'1.2-2' }}</td>
+            <td>
+              <button (click)="editarProduto(produto.id)">Editar</button>
+              <button class="excluir" (click)="excluirProduto(produto.id)">Excluir</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<ng-template #vazio>
+  <p class="mensagem-vazio">Nenhum produto cadastrado ainda.</p>
+</ng-template>

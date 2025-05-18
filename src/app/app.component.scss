@@ -1,0 +1,38 @@
+h1 {
+    color: #d4a017; // amarelo mostarda
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 0.5rem;
+  }
+  
+  nav {
+    background-color: #f7e8a4; // amarelo pastel claro
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    display: flex;
+    gap: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  nav a {
+    color: #c96a00; // laranja escuro
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  
+//   nav a:hover,
+//   nav a.active {
+//     color: #f26419; 
+//     text-decoration: underline;
+//   }
+  
+  .header-principal {
+    background-color: #fff8dc; // quase branco com tom quente
+    padding: 1rem 2rem;
+    box-shadow: 0 3px 7px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  

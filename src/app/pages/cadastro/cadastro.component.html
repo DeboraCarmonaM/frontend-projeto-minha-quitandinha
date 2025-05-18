@@ -1,0 +1,63 @@
+<div class="cadastro-container">
+  <h2>Cadastro de Produto</h2>
+  <form #form="ngForm" (ngSubmit)="cadastrarProduto(form)" novalidate class="form-cadastro">
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <input 
+        id="nome" 
+        name="nome" 
+        [(ngModel)]="produto.nome" 
+        required 
+        minlength="2" 
+        #nome="ngModel" 
+        placeholder="Digite o nome do produto"
+        [class.invalid]="nome.invalid && nome.touched"
+      />
+      <div class="error" *ngIf="nome.invalid && nome.touched">
+        Nome é obrigatório (mínimo 2 caracteres).
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="preco">Preço</label>
+      <input 
+        type="number" 
+        id="preco" 
+        name="preco" 
+        [(ngModel)]="produto.preco" 
+        required 
+        min="0" 
+        step="0.01" 
+        #preco="ngModel"
+        [class.invalid]="preco.invalid && preco.touched"
+      />
+      <div class="error" *ngIf="preco.invalid && preco.touched">
+        Preço deve ser igual ou maior que zero.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="quantidade">Quantidade</label>
+      <input 
+        type="number" 
+        id="quantidade" 
+        name="quantidade" 
+        [(ngModel)]="produto.quantidade" 
+        required 
+        min="0" 
+        #quantidade="ngModel"
+        [class.invalid]="quantidade.invalid && quantidade.touched"
+      />
+      <div class="error" *ngIf="quantidade.invalid && quantidade.touched">
+        Quantidade deve ser igual ou maior que zero.
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="form.invalid" class="btn-cadastrar">
+      Cadastrar
+    </button>
+  </form>
+</div>
+<div class="div-center">
+  <img class="img-familia" src="../../../assets/img/FAMILIA-QUITANDA-e1718049264838-1024x713.png.webp" alt="">
+</div>

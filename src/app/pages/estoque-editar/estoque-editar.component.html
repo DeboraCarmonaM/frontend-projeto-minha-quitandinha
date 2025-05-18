@@ -1,0 +1,83 @@
+<div class="editar-container" *ngIf="produto">
+  <h2>Editar Produto</h2>
+
+  <div class="mensagem sucesso" *ngIf="mensagemSucesso">
+    {{ mensagemSucesso }}
+  </div>
+  
+  <!-- Mensagem de erro -->
+  <div class="mensagem erro" *ngIf="mensagemErro">
+    {{ mensagemErro }}
+  </div>
+  
+  <!-- Indicador de carregamento -->
+  <div class="carregando" *ngIf="carregando">
+    <div class="spinner"></div>
+    <p>Carregando produto...</p>
+  </div>
+
+  <form #form="ngForm" (ngSubmit)="salvar()" novalidate>
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <input
+        type="text"
+        id="nome"
+        name="nome"
+        [(ngModel)]="produto.nome"
+        required
+        #nome="ngModel"
+      />
+      <small *ngIf="nome.invalid && nome.touched">Nome é obrigatório.</small>
+    </div>
+
+    <div class="form-group">
+      <label for="preco">Preço</label>
+      <input
+        type="number"
+        id="preco"
+        name="preco"
+        [(ngModel)]="produto.preco"
+        min="0"
+        required
+        #preco="ngModel"
+      />
+      <small *ngIf="preco.invalid && preco.touched">Preço inválido.</small>
+    </div>
+
+    <div class="form-group">
+      <label for="quantidade">Quantidade</label>
+      <input
+        type="number"
+        id="quantidade"
+        name="quantidade"
+        [(ngModel)]="produto.quantidade"
+        min="0"
+        required
+        #quantidade="ngModel"
+      />
+      <small *ngIf="quantidade.invalid && quantidade.touched">Quantidade inválida.</small>
+    </div>
+
+    <div class="form-group">
+      <label for="categoria">Categoria</label>
+      <input
+        type="text"
+        id="categoria"
+        name="categoria"
+        [(ngModel)]="produto.categoria"
+        required
+        #categoria="ngModel"
+      />
+      <small *ngIf="categoria.invalid && categoria.touched">Categoria é obrigatória.</small>
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">Salvar</button>
+    <button type="button" class="voltar" (click)="irParaEstoque()">Cancelar</button>
+  </form>
+</div>
+
+<div *ngIf="!produto" class="carregando">
+  <p>Carregando produto...</p>
+</div>
+
+

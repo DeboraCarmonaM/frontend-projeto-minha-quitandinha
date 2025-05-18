@@ -1,0 +1,144 @@
+.tabela-wrapper {
+    overflow-x: auto;
+    margin-top: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h2 {
+    text-align: center;
+    padding: 15px;
+    color: #ff9f1c;
+}
+
+.div-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  
+  .estoque-tabela {
+    width: 80%;
+    border-collapse: collapse;
+    background: #fffbea;
+    border: 1px solid #ffd54f;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+  
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ffe082;
+    }
+  
+    th {
+      background-color: #ffb300;
+      color: white;
+      font-weight: bold;
+    }
+  
+    td {
+      color: #424242;
+      &:nth-child(1),
+      &:nth-child(4) { 
+        text-transform: uppercase;
+      }
+    }
+  
+    button {
+      margin-right: 8px;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+  
+      &:hover {
+        opacity: 0.85;
+      }
+  
+      &.excluir {
+        background-color: #e53935;
+        color: white;
+      }
+  
+      &:not(.excluir) {
+        background-color: #f9a825;
+        color: white;
+      }
+    }
+  }
+  
+  .mensagem-vazio {
+    margin-top: 20px;
+    font-style: italic;
+    color: #757575;
+  }
+
+  .filtros {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  
+  .filtros input {
+    flex: 1 1 200px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: 2px solid #d4af37; 
+    border-radius: 8px;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(212, 175, 55, 0.2);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .filtros input:focus {
+    border-color: #ff9f1c; 
+    box-shadow: 0 0 8px #ff9f1c;
+  }
+  
+  .filtros input::placeholder {
+    color: #cbbf70; 
+    font-style: italic;
+  }
+
+  .categoria-bloco {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background-color: #f4f6f8;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease;
+  }
+  
+  .categoria-titulo {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    text-align: center;
+    padding-left: 0.75rem;
+  }
+  
+  
+  
+  /* RESPONSIVIDADE */
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 1.4rem;
+      text-align: center;
+    }
+  
+    .estoque-tabela {
+      font-size: 0.9rem;
+    }
+  
+    button {
+      font-size: 0.8rem;
+      padding: 5px 10px;
+    }
+  }
+  

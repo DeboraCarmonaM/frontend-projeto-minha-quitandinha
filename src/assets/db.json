@@ -1,0 +1,137 @@
+{"produtos": [
+    {
+      "id": "00ff",
+      "nome": "maçã",
+      "quantidade": 8,
+      "preco": 9,
+      "categoria": "frutas"
+    },
+    {
+      "id": "04ad",
+      "nome": "wafer",
+      "quantidade": 6,
+      "preco": 5.3,
+      "categoria": "biscoitos"
+    },
+    {
+      "id": "10aa",
+      "nome": "banana",
+      "quantidade": 12,
+      "preco": 2.5,
+      "categoria": "frutas"
+    },
+    {
+      "id": "11bb",
+      "nome": "leite integral",
+      "quantidade": 5,
+      "preco": 6.2,
+      "categoria": "laticínios"
+    },
+    {
+      "id": "12cc",
+      "nome": "arroz branco",
+      "quantidade": 10,
+      "preco": 8,
+      "categoria": "grãos"
+    },
+    {
+      "id": "13dd",
+      "nome": "feijão carioca",
+      "quantidade": 7,
+      "preco": 8,
+      "categoria": "grãos"
+    },
+    {
+      "id": "14ee",
+      "nome": "queijo muçarela",
+      "quantidade": 3,
+      "preco": 12,
+      "categoria": "laticínios"
+    },
+    {
+      "id": "15ff",
+      "nome": "iogurte natural",
+      "quantidade": 6,
+      "preco": 4.5,
+      "categoria": "laticínios"
+    },
+    {
+      "id": "16gg",
+      "nome": "cenoura",
+      "quantidade": 10,
+      "preco": 3.5,
+      "categoria": "legumes"
+    },
+    {
+      "id": "17hh",
+      "nome": "batata",
+      "quantidade": 15,
+      "preco": 6.5,
+      "categoria": "legumes"
+    },
+    {
+      "id": "18ii",
+      "nome": "alface",
+      "quantidade": 5,
+      "preco": 5,
+      "categoria": "verduras"
+    },
+    {
+      "id": "19jj",
+      "nome": "refrigerante coca cola",
+      "quantidade": 9,
+      "preco": 13,
+      "categoria": "bebidas"
+    },
+    {
+      "id": "20kk",
+      "nome": "água mineral",
+      "quantidade": 24,
+      "preco": 3,
+      "categoria": "bebidas"
+    },
+    {
+      "id": "21ll",
+      "nome": "café em pó",
+      "quantidade": 4,
+      "preco": 20,
+      "categoria": "bebidas"
+    },
+    {
+      "id": "22mm",
+      "nome": "pão de forma",
+      "quantidade": 6,
+      "preco": 7,
+      "categoria": "padaria"
+    },
+    {
+      "id": "23nn",
+      "nome": "presunto",
+      "quantidade": 5,
+      "preco": 10,
+      "categoria": "frios"
+    },
+    {
+      "id": "24oo",
+      "nome": "sabão em pó",
+      "quantidade": 3,
+      "preco": 15,
+      "categoria": "limpeza"
+    },
+    {
+      "id": "25pp",
+      "nome": "detergente",
+      "quantidade": 8,
+      "preco": 2.3,
+      "categoria": "limpeza"
+    },
+    {
+      "id": "26qq",
+      "nome": "papel higiênico",
+      "quantidade": 6,
+      "preco": 9.5,
+      "categoria": "higiene"
+    }
+  ],
+  "vendas": []
+}
