@@ -94,4 +94,34 @@ $c-erro: #d93025; // vermelho para erros
     justify-content: center;
     align-items: center;
 }
+
+select {
+  appearance: none;         
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: $c-fundo;
+  border: 2px solid lighten($c-primario, 40%);
+  border-radius: 5px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  color: $c-texto;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3csvg width='10' height='7' viewBox='0 0 10 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L5 6L9 1' stroke='%23d4a017' stroke-width='2'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 10px 7px;
+
+  &:focus {
+    border-color: $c-secundario;
+    outline: none;
+    box-shadow: 0 0 5px $c-secundario;
+  }
+
+  &.invalid {
+    border-color: $c-erro;
+    background-color: #ffe6e6;
+  }
+}
+
   

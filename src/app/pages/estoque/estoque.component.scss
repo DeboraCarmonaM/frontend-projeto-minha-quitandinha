@@ -1,5 +1,5 @@
 .tabela-wrapper {
-    overflow-x: auto;
+    
     margin-top: 20px;
     border-radius: 8px;
     display: flex;
@@ -20,7 +20,7 @@ h2 {
 }
   
   .estoque-tabela {
-    width: 80%;
+    width: 85%;
     border-collapse: collapse;
     background: #fffbea;
     border: 1px solid #ffd54f;
@@ -93,6 +93,7 @@ h2 {
     outline: none;
     box-shadow: 0 2px 5px rgba(212, 175, 55, 0.2);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px;
   }
   
   .filtros input:focus {
@@ -133,12 +134,13 @@ h2 {
     }
   
     .estoque-tabela {
-      font-size: 0.9rem;
+      font-size: 13px;
     }
   
     button {
       font-size: 0.8rem;
       padding: 5px 10px;
+      margin: 3px;
     }
   }
   

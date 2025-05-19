@@ -53,6 +53,25 @@
       </div>
     </div>
 
+    <div class="form-group">
+      <label for="categoria">Categoria</label>
+      <select
+        id="categoria"
+        name="categoria"
+        [(ngModel)]="produto.categoria"
+        required
+        #categoria="ngModel"
+        [class.invalid]="categoria.invalid && categoria.touched"
+      >
+        <option value="" disabled>Selecione uma categoria</option>
+        <option *ngFor="let cat of categorias" [value]="cat">{{ cat }}</option>
+      </select>
+      <div class="error" *ngIf="categoria.invalid && categoria.touched">
+        Categoria é obrigatória.
+      </div>
+    </div>
+    
+
     <button type="submit" [disabled]="form.invalid" class="btn-cadastrar">
       Cadastrar
     </button>
