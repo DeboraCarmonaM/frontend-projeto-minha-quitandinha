@@ -1,8 +1,10 @@
-$c-primario: #d4a017; // amarelo mostarda
-$c-secundario: #f48c06; // laranja
-$c-fundo: #fff9e6; // amarelo pastel claro
-$c-texto: #222; // quase preto
-$c-erro: #d93025; // vermelho para erros
+$c-primario: #2f8f46;
+$c-secundario: #f26b3a;
+$c-fundo: #ffffff;
+$c-select: #f7f8f5;
+$c-texto: #24302a;
+$c-borda: #dde5dd;
+$c-erro: #d94a3a;
 
 .cadastro-container {
   max-width: 420px;
@@ -10,7 +12,8 @@ $c-erro: #d93025; // vermelho para erros
   background-color: $c-fundo;
   padding: 25px 30px;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border: 1px solid $c-borda;
+  box-shadow: 0 4px 12px rgba(36, 48, 42, 0.08);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: $c-texto;
   
@@ -36,15 +39,16 @@ $c-erro: #d93025; // vermelho para erros
       
       input {
         padding: 8px 12px;
-        border: 2px solid lighten($c-primario, 40%);
+        border: 2px solid $c-borda;
         border-radius: 5px;
         font-size: 1rem;
         transition: border-color 0.3s ease;
+        background-color: $c-select;
         
         &:focus {
           border-color: $c-secundario;
           outline: none;
-          box-shadow: 0 0 5px $c-secundario;
+          box-shadow: 0 0 0 3px rgba(242, 107, 58, 0.16);
         }
         
         &.invalid {
@@ -62,8 +66,8 @@ $c-erro: #d93025; // vermelho para erros
     }
     
     .btn-cadastrar {
-      background-color: $c-primario;
-      color: white;
+      background-color: $c-primario !important;
+      color: #fff;
       padding: 10px 0;
       border: none;
       border-radius: 6px;
@@ -73,11 +77,11 @@ $c-erro: #d93025; // vermelho para erros
       transition: background-color 0.3s ease;
       
       &:hover:not(:disabled) {
-        background-color: $c-secundario;
+        background-color: #256f38 !important;
       }
       
       &:disabled {
-        background-color: lighten($c-primario, 30%);
+        background-color: #b8c7ba !important;
         cursor: not-allowed;
       }
     }
@@ -99,15 +103,15 @@ select {
   appearance: none;         
   -webkit-appearance: none;
   -moz-appearance: none;
-  background-color: $c-fundo;
-  border: 2px solid lighten($c-primario, 40%);
+  background-color: $c-select;
+  border: 2px solid $c-borda;
   border-radius: 5px;
   padding: 8px 12px;
   font-size: 1rem;
   color: $c-texto;
   cursor: pointer;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  background-image: url("data:image/svg+xml;charset=US-ASCII,%3csvg width='10' height='7' viewBox='0 0 10 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L5 6L9 1' stroke='%23d4a017' stroke-width='2'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3csvg width='10' height='7' viewBox='0 0 10 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L5 6L9 1' stroke='%232f8f46' stroke-width='2'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right 12px center;
   background-size: 10px 7px;
@@ -115,7 +119,7 @@ select {
   &:focus {
     border-color: $c-secundario;
     outline: none;
-    box-shadow: 0 0 5px $c-secundario;
+    box-shadow: 0 0 0 3px rgba(242, 107, 58, 0.16);
   }
 
   &.invalid {

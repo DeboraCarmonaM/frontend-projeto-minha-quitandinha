@@ -1,0 +1,159 @@
+/* Configurações gerais do container */
+.relatorios-container {
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  color: var(--color-text);
+}
+
+h1, h2 {
+  color: var(--color-primary-dark);
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: 10px;
+  margin-top: 20px;
+}
+
+h2 {
+  font-size: 1.2rem;
+  color: var(--color-text);
+  border-bottom: none;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--color-border);
+  margin: 25px 0;
+}
+
+/* 1. Área de Filtro */
+.filtro-area {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 15px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.filtro-area label {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+/* Inputs e Botões (Reutilizando estilos do Fluxo de Caixa) */
+input[type="date"],
+select {
+  padding: 8px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 9px 15px;
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-primary-dark);
+  color: #fff;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+
+/* 2. Tabela DRE */
+.dre-tabela {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden; /* Para arredondar as bordas da tabela */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.dre-tabela h2 {
+  padding: 20px 20px 0 20px;
+  margin: 0;
+}
+
+.tabela-financeira {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabela-financeira tr {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.tabela-financeira tr:last-child {
+  border-bottom: none;
+}
+
+.tabela-financeira td {
+  padding: 18px 20px;
+  font-size: 1rem;
+}
+
+.tabela-financeira td:last-child {
+  text-align: right;
+  font-weight: bold;
+  font-size: 1.1rem;
+  min-width: 180px;
+}
+
+/* Estilos das Linhas do DRE */
+
+/* Linha principal (ex: Receita Bruta, Lucro Bruto) */
+.linha-principal {
+  background-color: #eef4ef;
+  font-weight: bold;
+}
+
+/* Linha secundária (custos e despesas) */
+.linha-secundaria td {
+  padding-left: 30px; /* Indentação para custos */
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+
+/* Cores de Receita e Despesa */
+.linha-principal.receita td:last-child {
+  color: var(--color-primary);
+}
+
+.linha-secundaria.despesa td:last-child {
+  color: var(--color-danger);
+}
+
+/* Linhas de Resultado (Lucro Bruto e Líquido) */
+.linha-principal.resultado {
+  background-color: #eef7f8;
+  border-top: 2px solid var(--color-border);
+}
+
+.linha-principal.resultado td {
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+
+.linha-principal.resultado.liquido {
+  background-color: #e4f4f6;
+  font-size: 1.2rem;
+}
+
+/* Cores de Positivo/Negativo para os resultados */
+.resultado.positivo td:last-child,
+.resultado.liquido.positivo td:last-child {
+  color: var(--color-info);
+}
+
+.resultado.negativo td:last-child,
+.resultado.liquido.negativo td:last-child {
+  color: var(--color-danger);
+}

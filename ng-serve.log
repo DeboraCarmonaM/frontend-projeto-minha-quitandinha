@@ -1,0 +1,27 @@
+
+> gestor-app@0.0.0 start
+> ng serve --host 127.0.0.1 --port 4200
+
+Initial chunk files | Names         |  Raw size
+styles.css          | styles        | 270.30 kB | 
+main.js             | main          |  94.85 kB | 
+polyfills.js        | polyfills     |  88.09 kB | 
+
+                    | Initial total | 453.23 kB
+
+Application bundle generation complete. [3.495 seconds]
+
+Watch mode enabled. Watching for file changes...
+  ➜  Local:   http://127.0.0.1:4200/
+Initial chunk files | Names | Raw size
+main.js             | main  | 94.67 kB | 
+
+Application bundle generation complete. [1.164 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names | Raw size
+main.js             | main  | 94.39 kB | 
+
+Application bundle generation complete. [0.650 seconds]
+
+Page reload sent to client(s).

@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --color-bg: #f7f8f5;
+  --color-surface: #ffffff;
+  --color-text: #24302a;
+  --color-muted: #6b756d;
+  --color-primary: #2f8f46;
+  --color-primary-dark: #256f38;
+  --color-accent: #f26b3a;
+  --color-accent-soft: #ffe1d5;
+  --color-border: #dde5dd;
+  --color-danger: #d94a3a;
+  --color-info: #247c8c;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+div[vw].enabled {
+  z-index: 999999 !important;
+}
+
+div[vw-access-button] {
+  z-index: 999999 !important;
+}

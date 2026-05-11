@@ -1,0 +1,184 @@
+<div class="financeiro-container">
+  <h1>Fluxo de Caixa</h1>
+
+  <div class="filtro-area">
+    <h2>Filtro de Per&iacute;odo</h2>
+    <label>Data Inicial:
+      <input type="date" [(ngModel)]="dataInicial">
+    </label>
+    <label>Data Final:
+      <input type="date" [(ngModel)]="dataFinal">
+    </label>
+    <button (click)="aplicarFiltros()">Buscar Per&iacute;odo</button>
+  </div>
+
+  <section class="dashboard-area" aria-label="Dashboard financeiro">
+    <div class="resumo-cards">
+      <div class="card card-receitas">
+        <span>Receitas</span>
+        <strong>{{ totalReceitas | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</strong>
+        <small>{{ quantidadeReceitas }} lan&ccedil;amento(s)</small>
+      </div>
+
+      <div class="card card-despesas">
+        <span>Despesas</span>
+        <strong>{{ totalDespesas | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</strong>
+        <small>{{ quantidadeDespesas }} lan&ccedil;amento(s)</small>
+      </div>
+
+      <div class="card card-saldo" [ngClass]="{'positivo': saldoAtual >= 0, 'negativo': saldoAtual < 0}">
+        <span>Saldo L&iacute;quido</span>
+        <strong>{{ saldoAtual | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</strong>
+        <small>{{ quantidadeLancamentos }} registro(s) no per&iacute;odo</small>
+      </div>
+    </div>
+
+    <div class="indicadores-grid">
+      <div class="indicador">
+        <span>M&eacute;dia por receita</span>
+        <strong>{{ mediaReceitas | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</strong>
+      </div>
+      <div class="indicador">
+        <span>M&eacute;dia por despesa</span>
+        <strong>{{ mediaDespesas | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</strong>
+      </div>
+      <div class="indicador">
+        <span>Despesas sobre receitas</span>
+        <strong>{{ percentualDespesasSobreReceitas | number:'1.0-1':'pt-BR' }}%</strong>
+      </div>
+    </div>
+
+    <div class="grafico-card" *ngIf="resumoMensal.length > 0">
+      <div class="grafico-cabecalho">
+        <div>
+          <h2>Evolu&ccedil;&atilde;o Mensal</h2>
+          <span>Receitas, despesas e saldo no per&iacute;odo filtrado</span>
+        </div>
+
+        <div class="legenda-grafico" aria-label="Legenda do grafico">
+          <span><i class="receita"></i>Receitas</span>
+          <span><i class="despesa"></i>Despesas</span>
+          <span><i class="saldo"></i>Saldo</span>
+        </div>
+      </div>
+
+      <div class="grafico-barras" aria-label="Grafico mensal de fluxo de caixa">
+        <div class="mes-coluna" *ngFor="let mes of resumoMensal">
+          <div class="barras-grupo">
+            <div
+              class="barra receita"
+              [style.height.%]="mes.percentualReceitas"
+              [title]="'Receitas: ' + (mes.receitas | currency:'BRL':'symbol':'1.2-2':'pt-BR')"
+            ></div>
+            <div
+              class="barra despesa"
+              [style.height.%]="mes.percentualDespesas"
+              [title]="'Despesas: ' + (mes.despesas | currency:'BRL':'symbol':'1.2-2':'pt-BR')"
+            ></div>
+            <div
+              class="barra saldo"
+              [class.negativo]="mes.saldo < 0"
+              [style.height.%]="mes.percentualSaldo"
+              [title]="'Saldo: ' + (mes.saldo | currency:'BRL':'symbol':'1.2-2':'pt-BR')"
+            ></div>
+          </div>
+
+          <strong>{{ mes.mes }}</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="categorias-dashboard" *ngIf="resumoCategorias.length > 0">
+      <h2>Resumo por Categoria</h2>
+
+      <div class="categoria-lista">
+        <div
+          class="categoria-item"
+          *ngFor="let categoria of resumoCategorias"
+          [class.receita]="categoria.tipo === 'RECEITA'"
+          [class.despesa]="categoria.tipo === 'DESPESA'"
+        >
+          <div class="categoria-info">
+            <strong>{{ categoria.nome }}</strong>
+            <span>{{ categoria.tipo === 'RECEITA' ? 'Receita' : 'Despesa' }} - {{ categoria.quantidade }} item(ns)</span>
+          </div>
+
+          <div class="categoria-valores">
+            <strong>{{ categoria.total | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}</strong>
+            <span>{{ categoria.percentual | number:'1.0-1':'pt-BR' }}%</span>
+          </div>
+
+          <div class="categoria-barra" aria-hidden="true">
+            <span [style.width.%]="categoria.percentual"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <div class="lancamento-manual">
+    <h2>Registrar Nova Despesa Manual</h2>
+    <form (ngSubmit)="salvarLancamentoManual()">
+      <div class="form-row">
+        <input type="date" name="data" [(ngModel)]="novoLancamento.data" required>
+
+        <input type="number" name="valor" [(ngModel)]="novoLancamento.valor" placeholder="Valor (Ex: 150.00)" required min="0.01">
+
+        <input type="text" name="descricao" [(ngModel)]="novoLancamento.descricao" placeholder="Descri&ccedil;&atilde;o (Ex: Pagamento Aluguel)" required>
+
+        <select name="categoria" [(ngModel)]="novoLancamento.categoriaId" required>
+          <option [ngValue]="undefined" disabled>Selecione a Categoria...</option>
+          <option *ngFor="let cat of categorias" [ngValue]="cat.id">
+             {{ cat.nome }}
+          </option>
+        </select>
+
+        <input type="hidden" name="tipo" [ngModel]="'DESPESA'">
+
+        <button type="submit">Registrar Despesa</button>
+      </div>
+    </form>
+  </div>
+
+  <hr>
+
+  <div class="tabela-filtros">
+      <h2>Detalhe dos Lan&ccedil;amentos</h2>
+      <label>Mostrar Tipo:
+        <select [(ngModel)]="filtroTipo" (change)="mudarFiltroTipo()">
+          <option value="TODOS">Todos</option>
+          <option value="RECEITA">Receitas</option>
+          <option value="DESPESA">Despesas</option>
+        </select>
+      </label>
+  </div>
+
+  <table class="tabela-lancamentos">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Descri&ccedil;&atilde;o</th>
+        <th>Categoria</th>
+        <th>Tipo</th>
+        <th>Valor (R$)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let lanc of lancamentos"
+          [class.receita]="lanc.tipo === 'RECEITA'"
+          [class.despesa]="lanc.tipo === 'DESPESA'">
+        <td>{{ lanc.data | date:'shortDate' }}</td>
+        <td>{{ lanc.descricao }}</td>
+        <td>{{ getNomeCategoria(lanc.categoriaId) }}</td>
+        <td>{{ lanc.tipo === 'RECEITA' ? 'Receita' : 'Despesa' }}</td>
+        <td class="valor-col">
+            {{ lanc.valor | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="sem-registros" *ngIf="lancamentos.length === 0">Nenhum lan&ccedil;amento encontrado para o filtro atual.</p>
+</div>
